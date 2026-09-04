@@ -8,13 +8,13 @@ pipeline {
     stages {
         stage("Build") {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn clean deploy'
             }
         }
 
         stage('SonarQube Analysis') {
             environment {
-                scannerHome = tool 'prasann-sonar-scanner'
+                scannerHome = tool 'sonar-scanner'
             }
 
             steps {
