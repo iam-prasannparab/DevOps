@@ -18,7 +18,7 @@ pipeline {
             }
 
             steps {
-                withSonarQubeEnv('prasann-sonar-scanner') {
+                withSonarQubeEnv('sonar-server') {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
