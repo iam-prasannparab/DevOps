@@ -8,17 +8,17 @@ pipeline {
     stages {
         stage("Build") {
             steps {
-                sh "mvn clean deploy"
+                sh 'mvn clean deploy'
             }
         }
 
-        stage("SonarQube Analysis") {
+        stage('SonarQube Analysis') {
             environment {
-                scannerHome = tool "prasann-sonar-scanner"
+                scannerHome = tool 'prasann-sonar-scanner'
             }
 
             steps {
-                withSonarQubeEnv("prasann-sonar-scanner") {
+                withSonarQubeEnv('prasann-sonar-scanner') {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
